@@ -17,9 +17,9 @@ const { requirePageRole } = require('./middleware/pageAccessMiddleware');
 
 // Load environment variables
 if (process.env.NODE_ENV === 'test') {
-  dotenv.config({ path: path.join(__dirname, '.env.test'), override: true });
-} else {
-  dotenv.config({ path: path.join(__dirname, '.env'), override: true });
+  dotenv.config({ path: path.join(__dirname, '.env.test') });
+} else if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '.env') });
 }
 
 // Initialize Express
