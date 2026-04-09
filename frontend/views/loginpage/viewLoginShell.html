@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GSP - Login</title>
+    <link rel="stylesheet" href="/stylesheet/loginStylesheet.css" />
+    <style>
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+      .modal-backdrop.show {
+        display: flex;
+      }
+      .modal {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        min-width: 300px;
+        max-width: 420px;
+        width: calc(100% - 32px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .modal-close {
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1;
+      }
+      .modal form div {
+        margin-bottom: 10px;
+      }
+      .modal label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+      .modal input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      .modal p {
+        line-height: 1.5;
+      }
+      .modal button {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-page">
+      <header class="login-header">
+        <h1>GSP</h1>
+        <span class="login-subtitle">www.guidesheetpro.com</span>
+      </header>
+
+      <main class="login-card">
+        <h2 class="login-title">User Login</h2>
+
+        <form id="loginForm" class="login-form">
+          <div class="field-row">
+            <span class="field-label">Email</span>
+            <input type="email" id="loginEmail" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="field-row">
+            <span class="field-label">Password</span>
+            <input type="password" id="loginPassword" name="password" autocomplete="current-password" required />
+          </div>
+
+          <div class="button-row">
+            <button type="button" id="newUserButton" class="btn secondary">New User</button>
+            <button type="submit" class="btn primary">Login</button>
+          </div>
+        </form>
+
+        <div class="link-row">
+          <a href="/guest" id="guestLink">Continue as Guest</a>
+          <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+          <a href="#" id="resendVerificationLink">Resend verification email</a>
+        </div>
+      </main>
+    </div>
+
+    <div id="registerBackdrop" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Create Account</h2>
+          <span id="registerClose" class="modal-close">&times;</span>
+        </div>
+        <form id="registerForm">
+          <div>
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required />
+          </div>
+          <div>
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required />
+          </div>
+          <div>
+            <label for="registerPasswordConfirm">Confirm Password</label>
+            <input type="password" id="registerPasswordConfirm" required />
+          </div>
+          <div>
+            <label for="registerFirstName">First Name</label>
+            <input type="text" id="registerFirstName" required />
+          </div>
+          <div>
+            <label for="registerLastName">Last Name</label>
+            <input type="text" id="registerLastName" required />
+          </div>
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="forgotPasswordBackdrop" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Reset Password</h2>
+          <span id="forgotPasswordClose" class="modal-close">&times;</span>
+        </div>
+        <p>Enter your email address and we will send you a password reset link.</p>
+        <form id="forgotPasswordForm">
+          <div>
+            <label for="forgotPasswordEmail">Email</label>
+            <input type="email" id="forgotPasswordEmail" required />
+          </div>
+          <button type="submit">Send Reset Email</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="resendVerificationBackdrop" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Resend Verification</h2>
+          <span id="resendVerificationClose" class="modal-close">&times;</span>
+        </div>
+        <p>Enter your email address and we will send another verification email if the account still needs one.</p>
+        <form id="resendVerificationForm">
+          <div>
+            <label for="resendVerificationEmail">Email</label>
+            <input type="email" id="resendVerificationEmail" required />
+          </div>
+          <button type="submit">Send Verification Email</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/models/viewLogin.js"></script>
+  </body>
+</html>

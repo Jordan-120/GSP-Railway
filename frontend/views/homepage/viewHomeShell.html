@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSP — Home</title>
+    <link rel="stylesheet" href="/stylesheet/homeStylesheet.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-container">
+          <div class="nav-search">
+            <input
+              type="text"
+              id="navSearch"
+              placeholder="Search"
+              autocomplete="off"
+            />
+          </div>
+
+          <nav class="nav-accordion" id="navAccordion">
+            <!-- USER -->
+            <div class="acc-item">
+              <button class="acc-trigger" type="button">
+                <span>User</span>
+                <span class="acc-icon">▾</span>
+              </button>
+              <div class="acc-panel">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <button id="logoutBtn" class="blue">Logout</button> 
+              </div>              
+            </div>
+
+            <!-- TEMPLATE -->
+            <div class="acc-item">
+              <button class="acc-trigger" type="button">
+                <span>Template</span>
+                <span class="acc-icon">▾</span>
+              </button>
+              <div class="acc-panel">
+                <div class="template-controls">
+                  <!-- Search row (top) -->
+                  <div class="template-search">
+                    <input
+                      type="text"
+                      id="templateSearchInput"
+                      placeholder="Search Templates..."
+                    />
+                    <button
+                      type="button"
+                      id="templateSearchButton"
+                      class="blue"
+                    >
+                      Search
+                    </button>
+                  </div>
+
+                  <!-- Template dropdown row -->
+                  <label class="template-label"
+                    >Template:
+                    <select id="templateSelect"></select>
+                  </label>
+
+                  <!-- Buttons laid out in rows -->
+                  <div class="template-buttons">
+                    <button type="button" id="newTemplateButton" class="blue">
+                      New
+                    </button>
+                    <button type="button" id="saveTemplateButton" class="blue">
+                      Save
+                    </button>
+                    <button type="button" id="loadTemplateButton" class="blue">
+                      Load
+                    </button>
+                    <button
+                      type="button"
+                      id="deleteTemplateButton"
+                      class="danger"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      type="button"
+                      id="downloadTemplateButton"
+                      class="green"
+                    >
+                      Download
+                    </button>
+                    <button
+                      type="button"
+                      id="publishTemplateButton"
+                      class="green"
+                    >
+                      Submit for Publishing
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PAGES -->
+            <div class="acc-item">
+              <button class="acc-trigger" type="button">
+                <span>Pages</span>
+                <span class="acc-icon">▾</span>
+              </button>
+              <div class="acc-panel">
+                <div id="pagesList" class="pages-list"></div>
+                <div class="page-actions">
+                  <button id="addPageButton" class="btn btn-teal">Add</button>
+                  <button id="renamePageButton" class="btn btn-teal">Rename</button>
+                  <button id="savePageButton" class="btn btn-teal">Save</button>
+                  <button id="deletePageButton" class="btn btn-red">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STYLES -->
+            <div class="acc-item">
+              <button class="acc-trigger" type="button">
+                <span>Styles</span>
+                <span class="acc-icon">▾</span>
+              </button>
+
+              <div class="acc-panel">
+                <div class="styles-controls">
+                  <h2>Page</h2>
+                  <!-- Background -->
+                  <label>
+                    Background Color:
+                    <input type="color" id="pageBgColor" />
+                  </label>
+
+                  <!-- NEW: selected widget background -->
+                  <label>
+                    Highlighted Function Color:
+                    <input type="color" id="widgetBgColor" />
+                  </label>
+
+                  <!-- Page Size -->
+                  <div class="page-size-row">
+                    <label>Size:</label>
+                    <div class="page-dimensions">
+                      <input
+                        type="number"
+                        id="pageWidth"
+                        min="300"
+                        max="5000"
+                      />
+                      <span class="dim-x">x</span>
+                      <input
+                        type="number"
+                        id="pageHeight"
+                        min="300"
+                        max="5000"
+                      />
+                    </div>
+                  </div>
+
+                  <h2>Text</h2>
+                  <!-- Font Family -->
+                  <div class="font-row">
+                    <label class="style-label">Font:</label>
+                    <select id="fontFamily">
+                      <option value="Arial" selected>Arial</option>
+                      <option value="Verdana">Verdana</option>
+                      <option value="Tahoma">Tahoma</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Times New Roman">Times New Roman</option>
+                      <option value="Courier New">Courier New</option>
+                    </select>
+                  </div>
+
+                  <!-- Font Size -->
+                  <div class="font-size-row">
+                    <label class="style-label">Size:</label>
+                    <input type="number" id="fontSize" />
+                  </div>
+
+                  <!-- Bold / Italic / Underline -->
+                  <div class="font-style-row">
+                    <label class="style-label">Style:</label>
+                    <div class="font-style-toggles">
+                      <button class="toggle-btn" id="boldToggle">B</button>
+                      <button class="toggle-btn" id="italicToggle">I</button>
+                      <button class="toggle-btn" id="underlineToggle">U</button>
+                    </div>
+                  </div>
+
+                  <!-- Grid + Reset -->
+                  <div class="styles-buttons-row">
+                    <button id="toggleGridButton" class="blue">Grid: On</button>
+                    <button id="resetStylesButton" class="blue">Reset</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FUNCTIONS -->
+            <div class="acc-item">
+              <button class="acc-trigger" type="button">
+                <span>Functions</span>
+                <span class="acc-icon">▾</span>
+              </button>
+              <div class="acc-panel">
+                <div class="function-palette">
+                  <!-- Accordion -->
+                  <div
+                    class="function-item function-item-configurable"
+                    draggable="true"
+                    data-type="accordion"
+                  >
+                    <div class="function-thumb accordion-thumb">
+                      <div class="accordion-thumb-row">
+                        <span class="accordion-thumb-arrow">▸</span>
+                        <span class="accordion-thumb-text">Sec 1</span>
+                      </div>
+                      <div class="accordion-thumb-row">
+                        <span class="accordion-thumb-arrow">▸</span>
+                        <span class="accordion-thumb-text">Sec 2</span>
+                      </div>
+                    </div>
+                    <span class="function-label">Accordion</span>
+                    <div class="function-config" draggable="false">
+                      <input
+                        class="function-count-input"
+                        type="number"
+                        min="1"
+                        max="10"
+                        step="1"
+                        value="4"
+                        aria-label="Accordion sections"
+                        draggable="false"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Multi-tabs -->
+                  <div
+                    class="function-item function-item-configurable"
+                    draggable="true"
+                    data-type="tabs"
+                  >
+                    <div class="function-thumb tabs-thumb">
+                      <span>Tab</span>
+                    </div>
+                    <span class="function-label">Multi-tabs</span>
+                    <div class="function-config" draggable="false">
+                      <input
+                        class="function-count-input"
+                        type="number"
+                        min="1"
+                        max="10"
+                        step="1"
+                        value="4"
+                        aria-label="Multi-tab count"
+                        draggable="false"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Dropdown -->
+                  <div
+                    class="function-item function-item-configurable"
+                    draggable="true"
+                    data-type="dropdown"
+                  >
+                    <div class="function-thumb">
+                      <div class="thumb-bar">▼</div>
+                    </div>
+                    <span class="function-label">Dropdown</span>
+                    <div class="function-config" draggable="false">
+                      <input
+                        class="function-count-input"
+                        type="number"
+                        min="1"
+                        max="10"
+                        step="1"
+                        value="4"
+                        aria-label="Dropdown option count"
+                        draggable="false"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Text -->
+                  <div
+                    class="function-item"
+                    draggable="true"
+                    data-type="textbox"
+                  >
+                    <div class="function-thumb">
+                      <div class="thumb-input"></div>
+                    </div>
+                    <span class="function-label">Text</span>
+                  </div>
+
+                  <!-- Checkbox -->
+                  <div
+                    class="function-item function-item-configurable"
+                    draggable="true"
+                    data-type="checkbox"
+                  >
+                    <div class="function-thumb checkbox-thumb">
+                      <div class="thumb-checkbox"></div>
+                      <div class="thumb-checkbox"></div>
+                      <div class="thumb-checkbox"></div>
+                      <div class="thumb-checkbox"></div>
+                    </div>
+                    <span class="function-label">Checkbox</span>
+                    <div class="function-config" draggable="false">
+                      <input
+                        class="function-count-input"
+                        type="number"
+                        min="1"
+                        max="10"
+                        step="1"
+                        value="4"
+                        aria-label="Checkbox option count"
+                        draggable="false"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Progress Bar -->
+                  <div
+                    class="function-item"
+                    draggable="true"
+                    data-type="progressBar"
+                  >
+                    <div class="function-thumb">
+                      <div class="thumb-progress"></div>
+                    </div>
+                    <span class="function-label">Progress Bar</span>
+                  </div>
+
+                  <!-- Search Bubble -->
+                  <div
+                    class="function-item"
+                    draggable="true"
+                    data-type="searchBubble"
+                  >
+                    <div class="function-thumb">
+                      <div class="thumb-search-bubble"></div>
+                    </div>
+                    <span class="function-label">Search Bubble</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="content">
+        <h2>Page Builder</h2>
+
+        <section id="builderCanvas" class="builder-canvas">
+          <p class="builder-placeholder">
+            Drag functions from the left and drop them here.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <!-- scripts -->
+    <script type="module" src="/models/viewHome.js"></script>
+  </body>
+</html>

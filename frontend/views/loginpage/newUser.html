@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GSP - Login</title>
+    <link rel="stylesheet" href="/stylesheet/loginStylesheet.css" />
+  </head>
+    <style>
+    /* very basic modal styling – We don't want a full CSS file for it */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal-backdrop.show {
+      display: flex;
+    }
+    .modal {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      min-width: 300px;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .modal-close {
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .modal form div {
+      margin-bottom: 10px;
+    }
+    .modal label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .modal input {
+      width: 100%;
+      padding: 6px 8px;
+    }
+  </style>
+  <body>
+    <div class="login-page">
+      
+      <header class="login-header">
+        <h1>GSP</h1>
+        <span class="login-subtitle">www.guidesheetpro.com</span>
+      </header>
+      
+    <div id="register-backdrop" class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Create Account</h2>
+        <span id="register-close" class="modal-close">&times;</span>
+      </div>
+      <form id="register-form">
+        <div>
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" required />
+        </div>
+        <div>
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" required />
+        </div>
+        <div>
+          <label for="register-password-confirm">Confirm Password</label>
+          <input type="password" id="register-password-confirm" required />
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Frontend JS logic -->
+  <script src="/models/viewLogin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GSP Admin</title>
+  <link rel="stylesheet" href="/stylesheet/adminView.css">
+</head>
+<body>
+
+<div class="shell">
+  <div class="topbar">
+    <div class="topbar-left">
+      <input id="searchInput" class="search" type="text" placeholder="Search" />
+
+      <div class="dropdown">
+        <button id="dropdownBtn" class="dropdown-btn">Dropdown ▼</button>
+
+        <div id="dropdownMenu" class="dropdown-menu">
+          <div data-filter="all_users" class="active">All users</div>
+          <div data-filter="publish_approved">Publish Approved</div>
+          <div data-filter="publish_pending">Publish Pending</div>
+          <div data-filter="publish_denied">Publish Denied</div>
+          <div data-filter="banned_users">Banned Users</div>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+
+    <div class="top-tabs" id="tabs"></div>
+  </div>
+
+  <div class="main-grid">
+    <div class="left-col">
+      <div class="left-pane">
+        <div class="sheet-border">
+          <table class="sheet" id="sheetTable">
+            <thead>
+              <tr>
+                <th style="width:70px;">ID</th>
+                <th>Name</th>
+                <th style="width:160px;">Template</th>
+                <th style="width:140px;">Status</th>
+              </tr>
+            </thead>
+            <tbody id="sheetBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bottom-left">
+        <div class="admin-label">
+          <div class="admin-text">Admin<br>Panel</div>
+        </div>
+
+        <div class="admin-buttons">
+          <button id="viewBtn" class="btn neutral">View</button>
+          <button id="controlsBtn" class="btn neutral">User Controls</button>
+          <button id="approveBtn" class="btn approve">Approve</button>
+          <button id="rejectBtn" class="btn reject">Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-pane">
+      <div class="viewer">
+        <iframe id="pageFrame" class="page-frame" sandbox="allow-same-origin" title="Template Preview"></iframe>
+        <div id="emptyViewer" class="empty-viewer">
+          Select a row on the left and click <b>View</b>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="rejectModal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="rejectTitle">
+    <div class="modal-header">
+      <div id="rejectTitle" class="modal-title">Reject Template</div>
+      <button id="rejectCloseBtn" class="modal-x" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-help">Select a reason to send to the user:</p>
+      <select id="rejectReasonSelect" class="modal-select">
+        <option value="">Loading reasons…</option>
+      </select>
+      <p class="modal-note">
+        This will set the template status to <b>Denied</b>. The user can edit and re-submit later.
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button id="rejectCancelBtn" class="btn neutral">Cancel</button>
+      <button id="rejectConfirmBtn" class="btn reject">Confirm Reject</button>
+    </div>
+  </div>
+</div>
+
+<div id="userControlsModal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="userControlsTitle">
+    <div class="modal-header">
+      <div id="userControlsTitle" class="modal-title">User Controls</div>
+      <button id="userControlsCloseBtn" class="modal-x" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-card">
+        <div class="modal-label">Selected User</div>
+        <div id="selectedUserName" class="modal-strong">No user selected</div>
+        <div id="selectedUserStatus" class="modal-subtext">Status: —</div>
+      </div>
+
+      <p class="modal-help">Choose what you want to do with this account.</p>
+      <p id="userControlsHint" class="modal-note">Select a user row on the left to continue.</p>
+    </div>
+
+    <div class="modal-footer user-controls-footer">
+      <button id="banUserBtn" class="btn reject">Ban User</button>
+      <button id="unbanUserBtn" class="btn approve">Unban User</button>
+      <button id="userControlsCancelBtn" class="btn neutral">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="/models/adminView.js"></script>
+</body>
+</html>

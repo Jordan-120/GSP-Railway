@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GSP – Guest View</title>
+
+    <!-- If you have an existing homepage CSS, you can also include it here -->
+    <!-- Example (uncomment and adjust filename if needed): -->
+    <!-- <link rel="stylesheet" href="/stylesheet/homeStylesheet.css" /> -->
+
+    <!-- Guest-specific styles -->
+    <link rel="stylesheet" href="/stylesheet/guest/guestView.css" />
+  </head>
+  <body>
+    <div id="guestApp" class="guest-app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- Top search bar (visual only, same as home layout) -->
+        <div class="sidebar-search">
+          <input
+            type="text"
+            id="sidebarSearch"
+            placeholder="Search"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="accordion">
+          <!-- GUEST SECTION (only one that expands) -->
+          <div class="acc-item">
+            <button class="acc-trigger" type="button">
+              <span>Guest</span>
+              <span class="acc-icon">▾</span>
+            </button>
+            <div class="acc-panel">
+              <button
+                type="button"
+                id="guestSearchButton"
+                class="btn btn-primary btn-full"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+
+          <!-- TEMPLATES LOCKED -->
+          <div class="acc-item locked">
+            <button
+              class="acc-trigger locked"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
+              <span>Templates LOCKED</span>
+              <span class="acc-icon">🔒</span>
+            </button>
+            <!-- Panel kept for structure but will never open -->
+            <div class="acc-panel"></div>
+          </div>
+
+          <!-- PAGES LOCKED -->
+          <div class="acc-item locked">
+            <button
+              class="acc-trigger locked"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
+              <span>Pages LOCKED</span>
+              <span class="acc-icon">🔒</span>
+            </button>
+            <div class="acc-panel"></div>
+          </div>
+
+          <!-- STYLES LOCKED -->
+          <div class="acc-item locked">
+            <button
+              class="acc-trigger locked"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
+              <span>Styles LOCKED</span>
+              <span class="acc-icon">🔒</span>
+            </button>
+            <div class="acc-panel"></div>
+          </div>
+
+          <!-- FUNCTIONS LOCKED -->
+          <div class="acc-item locked">
+            <button
+              class="acc-trigger locked"
+              type="button"
+              disabled
+              aria-disabled="true"
+            >
+              <span>Functions LOCKED</span>
+              <span class="acc-icon">🔒</span>
+            </button>
+            <div class="acc-panel"></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <header class="main-header">
+          <h1>View Templates Only, Register For Full Access</h1>
+          <p class="subheading">
+            You are currently in guest mode. To unlock template editing, pages,
+            styles, and functions, please register or log in.
+          </p>
+        </header>
+
+        <section class="canvas-container">
+          <div class="canvas-toolbar">
+            <span class="canvas-info">
+              Guests can browse and preview templates only.
+            </span>
+            <a href="/" class="btn btn-outline">Back to Login</a>
+          </div>
+
+          <div class="canvas-grid" id="guestCanvas">
+            <div class="canvas-placeholder">
+              <p>
+                Templates visible to guests will appear here.
+                <br />
+                <span class="highlight">Register for full drag-and-drop Page Builder access.</span>
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Guest view behavior -->
+    <script src="/models/guest/guestView.js"></script>
+  </body>
+</html>

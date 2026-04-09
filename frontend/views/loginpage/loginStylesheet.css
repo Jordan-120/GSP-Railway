@@ -1,0 +1,124 @@
+/* Page layout */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Top tiny header (browser tab style) */
+.login-header {
+  width: 100%;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Card */
+.login-card {
+  margin-top: 40px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  padding: 24px 32px 18px;
+  box-sizing: border-box;
+  width: 340px;
+}
+
+.login-title {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Form fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-label {
+  background-color: #f3a53a; /* orange bar */
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.field-row input {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.button-row {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  min-width: 120px;
+}
+
+.btn.primary {
+  background-color: #4da3e2; /* blue */
+  color: #ffffff;
+  border-color: #3c8ac2;
+}
+
+.btn.secondary {
+  background-color: #e4f1fb;
+  color: #333333;
+  border-color: #4da3e2;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Bottom links */
+.link-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.link-row a {
+  color: #1a5fa8;
+  text-decoration: none;
+}
+
+.link-row a:hover {
+  text-decoration: underline;
+}
